@@ -14,8 +14,6 @@ It’s more about exploring:
 - Can it make creative, human-like moves?
 - Can it move more like a human?, in contrast to the chess engines that make very illogical but accurate moves  
 
-Early stage – cleaning PGN data and experimenting with model architectures.  
-
 ## Plans
 - Pretrain on large PGN dataset.  
 - Build a simple interface to play against the model.
