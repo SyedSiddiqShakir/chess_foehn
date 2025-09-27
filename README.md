@@ -4,7 +4,7 @@ This is me trying my way with machine learning using my hobby, chess.
 ## Idea
 Instead of using images of boards or hard-coded engines like Stockfish, I’m feeding in raw **PGN files** (yep, those game logs with all the move information). The idea is simple:  
 - Train a model that understands chess moves directly from PGNs.  
-- It should never make illegal moves (coz rules are built-in, 'python-chess' helps).  
+- It should never make illegal moves (coz rules are built-in, [Python-Chess](https://python-chess.readthedocs.io/en/latest/) helps).  
 - Try some pretraining tricks and forcing the model to guess them.  
 - Later: see if it can play fast games (like blitz/bullet) where intuition matters more than brute-force search.  
 
