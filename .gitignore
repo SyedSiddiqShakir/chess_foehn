@@ -1,3 +1,6 @@
+# dir
+chess_games_data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
