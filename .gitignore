@@ -1,5 +1,6 @@
 # dir
 chess_games_data/
+searchless_chess/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -10,6 +11,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+/.vscode
 .Python
 build/
 develop-eggs/
