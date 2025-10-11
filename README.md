@@ -17,3 +17,8 @@ It’s more about exploring:
 ## Plans
 - Pretrain on large PGN dataset.  
 - Build a simple interface to play against the model.
+
+## Acknowledgments
+This project is continuously getting inspired by the work of Ruoss et al. and their paper:
+
+> Ruoss, A., Delétang, G., Medapati, S., Grau-Moya, J., Wenliang, L. K., Catt, E., ... & Genewein, T. (2024). *Amortized Planning with Large-Scale Transformers: A Case Study on Chess*. 38th Conference on Neural Information Processing Systems (NeurIPS 2024). arXiv preprint arXiv:2402.04494.
