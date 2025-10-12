@@ -30,7 +30,7 @@ def remove_headers(lines):
     move = delimiter.join(moves)
     return move
 
-def to_fen(pgn):
+def to_fen(pgn_string):
         pass
 
 my_pgn = remove_headers(strip_lines(my_pgn))
@@ -41,6 +41,16 @@ cleaned_pgn2 = re.sub(r'\d+\.\s+', '', my_pgn2).strip()
 
 move_list = cleaned_pgn.split()
 move_list2 = cleaned_pgn2.split()
+
 del move_list2[-1]
 
 print(move_list2)
+
+board2 = chess.Board()
+fen2 = board2.fen()
+print(fen2)
+print(move_list2[0])
+
+board2_1 = board2.push_san(move_list2[0])
+fen2_1 = board2.fen()
+print(fen2_1)
