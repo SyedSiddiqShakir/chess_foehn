@@ -7,15 +7,10 @@ import chess
 import mess_around as ma
 import re
 
-with open('chess_games_data\latestgame.pgn', 'r', encoding='utf-8') as myfile1:
-    my_pgn = myfile1.read()
-
-with open('chess_games_data\latestgame2.pgn', 'r', encoding='utf-8') as myfile2:
-    my_pgn2 = myfile2.read()
-
 pgn = open("chess_games_data\latestgame.pgn")
 fg = chess.pgn.read_game(pgn)
 
+#print(my_pgn2)
 def strip_lines(content):
     lines = content.strip().split('\n')
     return lines
@@ -27,30 +22,35 @@ def remove_headers(lines):
             moves.append(line)
     moves = list(filter(None, moves))
     delimiter = ""
-    move = delimiter.join(moves)
-    return move
+    move_string = delimiter.join(moves)
+    return move_string
 
-def to_fen(pgn_string):
-        pass
+def convert_to_pgn_list(pgn_string):
+        #convert to string if not done already and clean the pgn to only list objects
+        pgn_string = remove_headers(strip_lines(str(pgn_string)))
+        cleaned_pgn_string = re.sub(r'\d+\.\s+', '', pgn_string).strip()
 
-my_pgn = remove_headers(strip_lines(my_pgn))
-my_pgn2 = remove_headers(strip_lines(my_pgn2))
+        #divide all half moves into list objects
+        pgn_list = cleaned_pgn_string.split()
+        
+        #deletes the game result (the last object always)
+        del pgn_list[-1]
+        return pgn_list
 
-cleaned_pgn = re.sub(r'\d+\.\s+', '', my_pgn).strip()
-cleaned_pgn2 = re.sub(r'\d+\.\s+', '', my_pgn2).strip()
+def pgn_to_fen(pgn_list: list):
+    my_board = chess.Board()
+    fen_list = []
 
-move_list = cleaned_pgn.split()
-move_list2 = cleaned_pgn2.split()
+    #iterate through the list
+    for move in pgn_list:
+        my_board.push_san(move)
+        fen = my_board.fen()
+        fen_list.append(fen)
+    return fen_list
 
-del move_list2[-1]
 
-print(move_list2)
+game = convert_to_pgn_list(fg)
+print(game)
 
-board2 = chess.Board()
-fen2 = board2.fen()
-print(fen2)
-print(move_list2[0])
-
-board2_1 = board2.push_san(move_list2[0])
-fen2_1 = board2.fen()
-print(fen2_1)
+final_fen_list = pgn_to_fen(game)
+print(final_fen_list)
