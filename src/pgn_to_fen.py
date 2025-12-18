@@ -4,7 +4,7 @@ Feed a PGN file in this and recieve a complete set of FEN states for the whole g
 The number of FEN states is equal to the number of half moves (not to be confused with a full move which is when 1 move is played by each player). 
 """
 import chess
-import mess_around as ma
+import src.data_exploration as ma
 import re
 
 pgn = open("chess_games_data\latestgame.pgn")

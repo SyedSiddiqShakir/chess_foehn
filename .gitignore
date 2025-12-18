@@ -1,7 +1,7 @@
 # dir
 chess_games_data/
 searchless_chess/
-
+perplexity/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
