@@ -1,0 +1,10 @@
+chess
+jax
+jaxtyping
+dm-haiku
+jupyter
+numpy
+orbax-checkpoint
+pandas
+torch
+torchvision
