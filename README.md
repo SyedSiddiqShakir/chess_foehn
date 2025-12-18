@@ -4,6 +4,8 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![Status](https://img.shields.io/badge/status-active%20development-orange)
 
+<img src="images/architecture_v2.png" alt="Model Architecture" width="400"/>
+
 ## Project Overview
 
 `chess_foehn` represents an experimental step in chess Transformers. Unlike traditional engines (Stockfish) that rely on Minimax/AlphaBeta search, or some RL approaches that view chess as isolated board states (FEN), this project treats chess as a **sequence modeling problem**. The goal is not to beat Stockfish at calculation depth, but to build an engine that plays with similar **human heuristics** or can conclude on some unfinded heuristics, making it ideal for speed time controls (Blitz/Bullet) where "intuition" of the position matters more than deepth.
