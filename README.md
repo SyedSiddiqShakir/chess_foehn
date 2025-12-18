@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![Status](https://img.shields.io/badge/status-active%20development-orange)
 
-<img src="images/architecture_v2.png" alt="Model Architecture" width="400"/>
+<img src="images/architecture_v2.png" alt="Model Architecture" width="600"/>
 
 ## Project Overview
 
