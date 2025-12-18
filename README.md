@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-`chess_foehn` represents an experimental step in chess Transformers. Unlike traditional engines (Stockfish) that rely on Minimax/AlphaBeta search, or some RL approaches that view chess as isolated board states (FEN), this project treats chess as a **sequence modeling problem**. The goal is not to beat Stockfish at calculation depth, but to build an engine that plays with similar **human heuristics** or can conclude on some unfinded heuristics, making it ideal for speed time controls (Blitz/Bullet) where "intuition" of the position matters more than deepth.
+`chess_foehn` represents an experimental step in chess Transformers. Unlike traditional engines (Stockfish) that rely on Minimax/AlphaBeta search, or some RL approaches that view chess as isolated board states (FEN), this project treats chess as **sequence modeling**. The goal is not to beat Stockfish at calculation depth, but to build an engine that plays with similar **human heuristics** or can conclude on some unfinded heuristics, making it ideal for speed time controls (Blitz/Bullet) where "intuition" of the position matters more than depth.
 
 ## Architecture
 
