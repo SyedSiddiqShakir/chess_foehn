@@ -13,5 +13,3 @@ orbax-checkpoint
 pandas
 scipy
 typing-extensions
-torch
-torchvision
