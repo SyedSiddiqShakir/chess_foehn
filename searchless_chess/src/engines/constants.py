@@ -89,8 +89,10 @@ def _build_neural_engine(
   predictor = transformer.build_transformer_predictor(config=predictor_config)
   checkpoint_dir = os.path.join(
       os.getcwd(),
-      f'../checkpoints/{model_name}',
+      f'checkpoints/{model_name}', # removed a jumpback ../
   )
+  print(f"os.getcwd(): {os.getcwd()}")
+  print(f"checkpoint_dir: {checkpoint_dir}")
   params = training_utils.load_parameters(
       checkpoint_dir=checkpoint_dir,
       params=predictor.initial_params(
