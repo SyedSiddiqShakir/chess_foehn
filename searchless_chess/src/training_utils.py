@@ -20,7 +20,7 @@ import pathlib
 from typing import Any
 
 import chex
-from grain import python as pygrain
+#from grain import python as pygrain #dummy for no training
 import haiku as hk
 import jax
 from jax import numpy as jnp
@@ -29,10 +29,15 @@ import orbax.checkpoint as ocp
 
 from searchless_chess.src import constants
 
+#creating a fake pygrain object
+class DummyGrain:
+  def __getattr__(self, _):
+    return None
+pygrain = DummyGrain()
 
 def replicate(
     array_tree: chex.ArrayTree,
-    sharding: jax.sharding.PositionalSharding,
+    sharding: jax.sharding.Sharding,
 ) -> chex.ArrayDeviceTree:
   """Replicates the `array_tree` across all devices specified by `sharding`.
 
@@ -191,7 +196,7 @@ def restore_checkpoint(
     params_ema: hk.Params,
     opt_state: optax.OptState,
     data_iter: pygrain.PyGrainDatasetIterator,
-    sharding: jax.sharding.PositionalSharding,
+    sharding: jax.sharding.Sharding,
 ) -> tuple[
     hk.Params, hk.Params, optax.OptState, pygrain.PyGrainDatasetIterator
 ]:

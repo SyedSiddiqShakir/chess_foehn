@@ -21,11 +21,17 @@ import dataclasses
 from typing import Any, NamedTuple, Protocol
 
 from apache_beam import coders
-from grain import python as pygrain
+#from grain import python as pygrain #not training so dummy out
 import haiku as hk
 import jaxtyping as jtp
 
 from searchless_chess.src import config as config_lib
+
+#creating a fake pygrain object
+class DummyGrain:
+  def __getattr__(self, _):
+    return None
+pygrain = DummyGrain()
 
 
 # Integer sequences of token ids.
