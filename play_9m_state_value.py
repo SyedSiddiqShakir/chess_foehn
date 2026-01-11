@@ -28,8 +28,10 @@ def play_game():
 
         #human move
         if board.turn == chess.WHITE:
+            print('White turn')
             while True:
                 move_str = input("Human move".strip())
+                print(move_str)
                 move = chess.Move.from_uci(move_str)
                 if move in board.legal_moves:
                     board.push(move)
@@ -44,5 +46,5 @@ def play_game():
             board.push(best_move)
     print(board.result())
 
-    if __name__ == '__main__':
-        play_game()
+if __name__ == '__main__':
+    play_game()
