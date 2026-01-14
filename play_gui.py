@@ -13,8 +13,8 @@ BOARD_SIZE = 640 #pixels
 SQUARE_SIZE = BOARD_SIZE // 8
 
 #colors
-WHITE_COLOR = (249, 241, 241)
-BLACK_COLOR = (138, 42, 43)
+WHITE_COLOR = (149, 141, 141)
+BLACK_COLOR = (128, 42, 43)
 HIGHLIGHT_COLOR = (255,33,140)
 TEXT_COLOR_WHITE = (255, 255, 255)
 TEXT_COLOR_BLACK = (0,0,0)
@@ -88,7 +88,7 @@ def main():
     clock = pygame.time.Clock()
 
     try:    
-        font = pygame.font.SysFont("seqoeuisymbol", int(SQUARE_SIZE*0.9))
+        font = pygame.font.SysFont("segoeuisymbol", int(SQUARE_SIZE*0.9))
     except:
         font = pygame.font.SysFont(None, int(SQUARE_SIZE*0.9))
 
@@ -116,17 +116,17 @@ def main():
 
                         if move.promotion is None and board.piece_at(selected_square).piece_type == chess.PAWN:
                             if chess.square_rank(clicked_square) in [0, 7]:
-                                move.promotion == chess.QUEEN
+                                move.promotion = chess.QUEEN
 
-                            if move in board.legal_moves:
-                                board.push(move)
-                                selected_square = None #remove selection after move
+                        if move in board.legal_moves:
+                            board.push(move)
+                            selected_square = None #remove selection after move
+                        else:
+                            piece = board.piece_at(clicked_square)
+                            if piece and piece.color == chess.WHITE:
+                                selected_square = clicked_square
                             else:
-                                piece = board.piece_at(clicked_square)
-                                if piece and piece.color == chess.WHITE:
-                                    selected_square = clicked_square
-                                else:
-                                    selected_square = None
+                                selected_square = None
         
         #draw
         draw_board(screen, board, selected_square)
