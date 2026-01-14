@@ -2,6 +2,7 @@
 chess_games_data/
 searchless_papers/
 perplexity/
+stockfish/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
