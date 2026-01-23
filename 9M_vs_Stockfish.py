@@ -3,11 +3,16 @@ import os
 import time
 import chess
 import chess.engine
+import datetime
 
 sys.path.append(os.getcwd())
 from searchless_chess.src.engines import constants
 
-STOCKFISH_PATH = r"S:\Everything German\Study Docs\SEM3\applications_of_ml\chess_Foehn\stockfish\stockfish-windows-x86-64-avx2.exe" 
+from config_pars import load_config
+
+#config file
+config = load_config()
+STOCKFISH_PATH = config.get("STOCKFISH_PATH", "stochfish.exe") 
 STOCKFISH_DEPTH = 2 
 
 def play_match():
@@ -74,11 +79,23 @@ def play_match():
     print(f"Winner: {board.outcome().winner}")
     
     # Print PGN for analysis
-    print("\nFinal PGN (Copy this to Lichess to analyze):")
+    print("\nFinal PGN:")
     game = chess.pgn.Game.from_board(board)
     game.headers["White"] = white_player
     game.headers["Black"] = black_player
     print(game)
+
+    #save as file with unique name
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    safe_result = board.result().replace("/", "-") # Fixes "1/2-1/2" for filenames
+    
+    filename = f"9m_vs_stockfish_{safe_result}_{board.fullmove_number}mv_{timestamp}.pgn"
+    
+    with open(filename, "w", encoding="utf-8") as pgn_file:
+        print(game, file=pgn_file, end="\n\n")
+    
+    print(f"Saved PGN file to '{filename}'")
 
     # Cleanup
     stockfish.quit()

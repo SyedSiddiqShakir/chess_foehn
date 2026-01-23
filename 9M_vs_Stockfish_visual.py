@@ -8,8 +8,11 @@ import time
 sys.path.append(os.getcwd())
 from searchless_chess.src.engines import constants
 
+from config_pars import load_config
 
-STOCKFISH_PATH = r"S:\Everything German\Study Docs\SEM3\applications_of_ml\chess_Foehn\stockfish\stockfish-windows-x86-64-avx2.exe" 
+#config file
+config = load_config()
+STOCKFISH_PATH = config.get("STOCKFISH_PATH", "stochfish.exe") 
 STOCKFISH_DEPTH = 2
 
 # Visual Settings
@@ -19,8 +22,8 @@ FPS = 60
 MOVE_DELAY = 0.5  # Seconds to wait between moves so we can see them
 
 # Colors
-WHITE_COLOR = (240, 217, 181)
-BLACK_COLOR = (181, 136, 99)
+WHITE_COLOR = (149, 141, 141)
+BLACK_COLOR = (128, 42, 43)
 HIGHLIGHT_COLOR = (100, 255, 100) # Green for last move
 TEXT_COLOR_BLACK = (0, 0, 0)
 TEXT_COLOR_WHITE = (255, 255, 255)

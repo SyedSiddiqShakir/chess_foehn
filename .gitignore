@@ -3,8 +3,9 @@ chess_games_data/
 searchless_papers/
 perplexity/
 stockfish/
-
+config.txt
 # Byte-compiled / optimized / DLL files
+*.pgn
 __pycache__/
 *.py[codz]
 *$py.class
