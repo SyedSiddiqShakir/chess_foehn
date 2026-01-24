@@ -4,6 +4,8 @@ searchless_papers/
 perplexity/
 stockfish/
 config.txt
+benchmark_data/
+
 # Byte-compiled / optimized / DLL files
 *.pgn
 __pycache__/
