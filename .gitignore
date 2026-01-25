@@ -5,6 +5,7 @@ perplexity/
 stockfish/
 config.txt
 benchmark_data/
+unit_test.py
 
 # Byte-compiled / optimized / DLL files
 *.pgn
