@@ -1,5 +1,10 @@
 import sys
 import os
+sys.path.append(os.getcwd())
+print("I am running from:", sys.executable)
+
+from searchless_chess.src.engines import constants
+
 import chess #type: ignore 
 import chess.engine #type: ignore
 import chess.pgn #type: ignore
@@ -7,7 +12,7 @@ import pandas as pd #type: ignore
 import time
 import datetime
 import random
-sys.path.append(os.getcwd())
+
 from searchless_chess.src.engines import constants
 from config_pars import load_config
 
@@ -16,9 +21,9 @@ config = load_config()
 STOCKFISH_PATH = config.get("STOCKFISH_PATH", "stockfish.exe")
 
 # EXPERIMENT SETTINGS
-MODEL_NAME = '270M'  # Options: '9M', '136M', '270M'
-GAMES_PER_DEPTH = 1 
-DEPTHS_TO_TEST = [1, 2] # depth levels, can simply add or remove
+MODEL_NAME = '9M'  # Options: '9M', '136M', '270M'
+GAMES_PER_DEPTH = 20 
+DEPTHS_TO_TEST = [1, 2, 3, 4, 5] # depth levels, can simply add or remove
 
 # Filer
 OUTPUT_FOLDER = "benchmark_data"
