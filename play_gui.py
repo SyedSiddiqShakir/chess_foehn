@@ -2,6 +2,7 @@
     A GUI to play against the models, maybe a modular GUI later :)
 """
 import sys
+print("I am running from:", sys.executable)
 import os
 import pygame #type: ignore
 import chess #type: ignore

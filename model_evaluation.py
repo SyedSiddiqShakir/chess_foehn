@@ -1,9 +1,9 @@
 import sys
 import os
-import chess
-import chess.engine
-import chess.pgn
-import pandas as pd
+import chess #type: ignore
+import chess.engine #type: ignore 
+import chess.pgn #type: ignore
+import pandas as pd #type: ignore
 import time
 import datetime
 import random
